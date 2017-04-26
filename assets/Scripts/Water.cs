@@ -25,6 +25,7 @@ public class Water : MonoBehaviour {
 
     //The GameObject we're using for a mesh
     public GameObject watermesh;
+    public int width = 1;
 
     //All our constants
     const float springconstant = 0.02f;
@@ -41,7 +42,7 @@ public class Water : MonoBehaviour {
     void Start()
     {
         //Spawning our water
-        SpawnWater(-10,20,0,-3);
+        SpawnWater(-width/2,width,0,-3);
     }
 
     
@@ -83,7 +84,7 @@ public class Water : MonoBehaviour {
     {
         //Bonus exercise: Add a box collider to the water that will allow things to float in it.
         gameObject.AddComponent<BoxCollider2D>();
-        gameObject.GetComponent<BoxCollider2D>().center = new Vector2(Left + Width / 2, (Top + Bottom) / 2);
+        gameObject.GetComponent<BoxCollider2D>().offset = new Vector2(Left + Width / 2, (Top + Bottom) / 2);
         gameObject.GetComponent<BoxCollider2D>().size = new Vector2(Width, Top - Bottom);
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
 

@@ -5,9 +5,9 @@ public class WaterDetector : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D Hit)
     {
-        if (Hit.rigidbody2D != null)
+        if (Hit.GetComponent<Rigidbody2D>() != null)
         {
-          transform.parent.GetComponent<Water>().Splash(transform.position.x, Hit.rigidbody2D.velocity.y*Hit.rigidbody2D.mass / 40f);
+          transform.parent.GetComponent<Water>().Splash(transform.position.x, Hit.GetComponent<Rigidbody2D>().velocity.y*Hit.GetComponent<Rigidbody2D>().mass / 40f);
         }
     }
 
